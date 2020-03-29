@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, TextInput, StyleSheet, Button } from "react-native";
 import { Style } from "../HomeScreen";
 import { useDispatch, useSelector } from "react-redux";
-import { sendSignup } from "../../assets/store/user/action";
+import { sendSignup } from "../../store/user/action";
 
 export default function Signup({ navigation }) {
   const dispatch = useDispatch();

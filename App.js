@@ -8,7 +8,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
 import Login from "./screens/user/Login";
 import Signup from "./screens/user/Signup";
-import store from "./assets/store";
+import RoomDevices from "./screens/Devices/RoomDevices";
+import store from "./store";
 
 const Stack = createStackNavigator();
 
@@ -17,7 +18,7 @@ function App() {
     <StoreProvider store={store}>
       <PaperProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="HomeScreen">
+          <Stack.Navigator initialRouteName="Home">
             <Stack.Screen
               name="Home"
               component={HomeScreen}
@@ -32,6 +33,11 @@ function App() {
               name="Signup"
               component={Signup}
               options={{ title: "Please Signup" }}
+            />
+            <Stack.Screen
+              name="Devices"
+              component={RoomDevices}
+              options={{ title: "Your Room Devices" }}
             />
           </Stack.Navigator>
         </NavigationContainer>

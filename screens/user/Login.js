@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Style } from "../HomeScreen";
 import { View, TextInput, StyleSheet, Button, Text } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { sendLogin } from "../../assets/store/user/action";
+import { sendLogin } from "../../store/user/action";
 
 export default function Login({ navigation }) {
   const dispatch = useDispatch();
@@ -21,10 +21,10 @@ export default function Login({ navigation }) {
 
   const handleSubmit = e => {
     dispatch(sendLogin(loginData));
-    setLoginData({ email: "", password: "" });  
+    setLoginData({ email: "", password: "" });
   };
 
-  if (userstate) return navigation.navigate("HomeScreen");
+  if (userstate) return navigation.navigate("Home");
   return (
     <View>
       <TextInput
