@@ -6,7 +6,6 @@ import { Provider as StoreProvider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
-import DetailsScreen from "./screens/DetailsScreen";
 import Login from "./screens/user/Login";
 import Signup from "./screens/user/Signup";
 import store from "./assets/store";
@@ -18,16 +17,11 @@ function App() {
     <StoreProvider store={store}>
       <PaperProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
+          <Stack.Navigator initialRouteName="HomeScreen">
             <Stack.Screen
               name="Home"
               component={HomeScreen}
               options={{ title: "Welcome" }}
-            />
-            <Stack.Screen
-              name="Details"
-              component={DetailsScreen}
-              options={{ title: "Details Page" }}
             />
             <Stack.Screen
               name="Login"
@@ -48,4 +42,4 @@ function App() {
 
 export default App;
 
-// AppRegistry.registerComponent("App", () => App);
+AppRegistry.registerComponent("App", () => App);

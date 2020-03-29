@@ -12,37 +12,14 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function HomeScreen({ navigation }) {
   const [room, setRoom] = useState("");
-  const [roomlist, setRoomlist] = useState([]);
 
-  const getlist = async () => {
-    const response = await fetch("http://localhost:4000/getevents");
-    const myJSON = await response.json();
-    setRoomlist(myJSON);
-  };
-  // .then(response => setRoomlist(response.json())
-
-  const handletextInput = e => {
-    setRoom(e.target.value);
-  };
-
-  const handlesubmit = e => {
-    setRoomlist([...roomlist, room]);
-  };
-
-  console.log("###", room, roomlist);
+  const roomlist = ["Living Room", "Kitchen", "Bed Room", "Bathroom", "Garage"];
 
   return (
     <ScrollView>
-      <Text>Home Screen</Text>
-      <TextInput
-        style={Style.input}
-        name="room"
-        placeholder="Enter text"
-        onChange={handletextInput}
-        value={room}
-      />
-      <Button title="Go to Details" onPress={getlist} />
-      {roomlist.length && (
+      <Text style={Style.heading}>Warranty managing tool</Text>
+
+      {/* {roomlist.length && (
         <FlatList
           style={{ color: "tomato", fontFamily: "sans-serif" }}
           data={roomlist}
@@ -54,21 +31,22 @@ export default function HomeScreen({ navigation }) {
             </TouchableOpacity>
           )}
         />
-      )}
+      )} */}
     </ScrollView>
   );
 }
 
-const Style = StyleSheet.create({
-  photo: {
-    height: 50,
-    width: 50
-  },
+export const Style = StyleSheet.create({
   input: {
     height: 30,
     borderColor: "gray",
     borderWidth: 1,
     borderRadius: 5,
-    margin: 5
+    margin: 10
+  },
+  heading: {
+    fontSize: 25,
+    color: "#808080",
+    margin: "auto"
   }
 });
