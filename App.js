@@ -9,6 +9,7 @@ import HomeScreen from "./screens/HomeScreen";
 import Login from "./screens/user/Login";
 import Signup from "./screens/user/Signup";
 import RoomDevices from "./screens/Devices/RoomDevices";
+import AddDeviceForm from "./screens/Devices/AddDeviceForm";
 import store from "./store";
 
 const Stack = createStackNavigator();
@@ -38,6 +39,11 @@ function App() {
               name="Devices"
               component={RoomDevices}
               options={{ title: "Your Room Devices" }}
+            />
+            <Stack.Screen
+              name="AddDevice"
+              component={AddDeviceForm}
+              options={{ title: "Add a device" }}
             />
           </Stack.Navigator>
         </NavigationContainer>
